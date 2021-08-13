@@ -6,6 +6,7 @@ import Basket from '../../../assets/images/basket.svg';
 import Delete from '../../../assets/images/delete.svg';
 import Plus from '../../../assets/images/plus.svg';
 import Minus from '../../../assets/images/minus.svg';
+import Home from '../../../assets/images/home.svg';
 
 interface PropsImage {
   w: number;
@@ -67,4 +68,12 @@ export const IconComponentMinus: React.FC<PropsImage> = ({
   fill = 'white',
 }: PropsImage) => {
   return <Minus width={w} height={h} fill={fill} />;
+};
+
+export const IconComponentHome: React.FC<PropsImage> = ({
+  w,
+  h,
+  fill = 'white',
+}: PropsImage) => {
+  return <Home width={w} height={h} fill={fill} />;
 };
