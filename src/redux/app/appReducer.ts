@@ -32,8 +32,11 @@ export const OperationApp: any = {
   deleteProduct: (favoriteProducts: ProductsInterface[], item: ProductsInterface) => (dispatch: Dispatch<GlobalActionInterface>) => {
     const newProducts: ProductsInterface[] = favoriteProducts.slice()
 
+
     const deleteProduct = newProducts.findIndex((product) => product.id === item.id)
     newProducts.splice(deleteProduct, 1)
+
+    // console.log(newProducts);
 
     dispatch(ActionCreatorApp.putBasketProduct(newProducts))
 

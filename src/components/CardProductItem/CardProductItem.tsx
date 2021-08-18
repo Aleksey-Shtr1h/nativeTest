@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {GlobalState} from './../../redux/typeState';
+import { GlobalState } from './../../redux/typeState';
 import {
   putBasketProductSelector,
   putFavoriteProductSelector,
 } from './../../redux/app/appSelector';
-import {OperationApp} from '../../redux/app/appReducer';
-import {ActionCreatorApp} from '../../redux/app/appAction';
+import { OperationApp } from '../../redux/app/appReducer';
+import { ActionCreatorApp } from '../../redux/app/appAction';
 
-import {BtnCountProduct} from '../BtnCountProduct/BtnCountProduct';
+import { BtnCountProduct } from '../BtnCountProduct/BtnCountProduct';
 
 import {
   IconComponentLike,
@@ -59,10 +59,10 @@ export const CardProductItem: React.FC<Props> = ({
 }: Props) => {
   const [countProduct, setCountProduct] = useState(1);
   const favoriteProducts = useSelector((state: GlobalState) =>
-    putFavoriteProductSelector(state),
+    putFavoriteProductSelector(state)
   );
   const basketProducts = useSelector((state: GlobalState) =>
-    putBasketProductSelector(state),
+    putBasketProductSelector(state)
   );
 
   const dispatch = useDispatch();
@@ -74,10 +74,12 @@ export const CardProductItem: React.FC<Props> = ({
   }, [countProduct]);
 
   const favoriteProduct = favoriteProducts.find(
-    product => product.id === item.id,
+    (product) => product.id === item.id
   );
 
-  const basketProduct = basketProducts.find(product => product.id === item.id);
+  const basketProduct = basketProducts.find(
+    (product) => product.id === item.id
+  );
 
   const basketTitle = basketProduct ? 'Убрать' : 'В корзину';
 
@@ -96,10 +98,6 @@ export const CardProductItem: React.FC<Props> = ({
   };
   const onCountMinusPress = () => {
     setCountProduct(countProduct - 1);
-
-    // if (countProduct === 1) {
-    //   dispatch(OperationApp.deleteProduct(basketProducts, item));
-    // }
   };
 
   const onPutFavoriteProductPress = () => {

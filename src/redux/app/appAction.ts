@@ -11,9 +11,9 @@ export const ActionCreatorApp = {
     payload: products,
   }),
 
-  deleteProducts: (): DELETE_PRODUCTS => ({
+  deleteProducts: (products: ProductsInterface[] | []): DELETE_PRODUCTS => ({
     type: ActionTypeApp.DELETE_PRODUCTS,
-    payload: [],
+    payload: products,
   }),
 
   toglleMessangesPreload: (isTogglePreload: boolean): PRELOAD_MESSANGES => ({

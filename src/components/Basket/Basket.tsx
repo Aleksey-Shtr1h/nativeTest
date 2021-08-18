@@ -1,13 +1,13 @@
 import React from 'react';
-import {FlatList, TouchableOpacity} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import { FlatList, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {ActionCreatorApp} from '../../redux/app/appAction';
-import {putBasketProductSelector} from '../../redux/app/appSelector';
-import {GlobalState} from '../../redux/typeState';
+import { ActionCreatorApp } from '../../redux/app/appAction';
+import { putBasketProductSelector } from '../../redux/app/appSelector';
+import { GlobalState } from '../../redux/typeState';
 
-import {BasketItem} from '../BasketItem/BasketItem';
-import {EmptyBasket} from '../EmptyBasket/EmptyBasket';
+import { BasketItem } from '../BasketItem/BasketItem';
+import { EmptyBasket } from '../EmptyBasket/EmptyBasket';
 
 import {
   IconComponentBox,
@@ -17,6 +17,7 @@ import {
 import {
   Ant_FlexColumnWrap,
   Ant_FlexRowWrap,
+  Ant_FlexScrolWrap,
 } from '../../global-styled/global.styled';
 
 import {
@@ -29,23 +30,24 @@ import {
 export const Basket = () => {
   const dispatch = useDispatch();
   const basketProducts = useSelector((state: GlobalState) =>
-    putBasketProductSelector(state),
+    putBasketProductSelector(state)
   );
 
   const deleteProducts = () => {
-    dispatch(ActionCreatorApp.deleteProducts());
+    dispatch(ActionCreatorApp.deleteProducts([]));
   };
 
   return (
     <>
       {basketProducts.length !== 0 ? (
-        <Ant_FlexColumnWrap m="18px 18px">
+        <Ant_FlexColumnWrap m="18px 18px" h="100%">
           <Ant_FlexRowWrap
             jc="space-between"
             ai="center"
             p="0 0 16px 0"
             m="0 0 16px 0"
-            style={{botomBorderWidth: 1, borderBottomColor: '#E3E5E5'}}>
+            style={{ botomBorderWidth: 1, borderBottomColor: '#E3E5E5' }}
+          >
             <Ant_FlexRowWrap>
               <IconComponentBox w={20} h={20} />
               <Ant_FlexColumnWrap m="0 10px">
@@ -64,23 +66,28 @@ export const Basket = () => {
           </Ant_FlexRowWrap>
           <Ant_FlexColumnWrap
             p="0 0 16px 0"
-            style={{botomBorderWidth: 1, borderBottomColor: '#E3E5E5'}}>
+            style={{ botomBorderWidth: 1, borderBottomColor: '#E3E5E5' }}
+          >
             <Ant_DeliveryMethodTitleText>
               Способ получения заказа
             </Ant_DeliveryMethodTitleText>
             <Ant_DeliveryMethodText>Курьером с 27.05</Ant_DeliveryMethodText>
           </Ant_FlexColumnWrap>
+
           <FlatList
             data={basketProducts}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <Ant_FlexColumnWrap
                 w="92%"
                 m="5px 16px"
-                style={{botomBorderWidth: 1, borderBottomColor: '#E3E5E5'}}>
-                <BasketItem item={item} />
+                style={{ botomBorderWidth: 1, borderBottomColor: '#E3E5E5' }}
+              >
+                <Ant_FlexScrolWrap>
+                  <BasketItem item={item} />
+                </Ant_FlexScrolWrap>
               </Ant_FlexColumnWrap>
             )}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item, index) => item.id + index}
           />
         </Ant_FlexColumnWrap>
       ) : (

@@ -35,6 +35,7 @@ export const Ant_FlexScrolWrap = styled.ScrollView`
 
   border: ${(props) => props.bdr || '1px solid #ffffff00'};
 `;
+
 const Ant_FlexWrapPress = styled.TouchableOpacity`
   display: flex;
   align-items: ${(props) => props.ai || 'stretch'};

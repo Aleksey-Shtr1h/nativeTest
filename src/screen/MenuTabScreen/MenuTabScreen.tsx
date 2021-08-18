@@ -1,7 +1,7 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {MainScreen} from './../../components/MainScreen/MainScreen';
-import {Basket} from './../../components/Basket/Basket';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MainScreen } from './../../components/MainScreen/MainScreen';
+import { Basket } from './../../components/Basket/Basket';
 import {
   IconComponentBasket,
   IconComponentHome,
@@ -12,8 +12,8 @@ const MenuTabScreenStack = createBottomTabNavigator();
 export const MenuTabScreen: React.FC = () => {
   return (
     <MenuTabScreenStack.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({color, size}) => {
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
           if (route.name === 'MainScreen') {
             return <IconComponentHome w={size} h={size} fill={color} />;
           } else if (route.name === 'Basket') {
@@ -22,16 +22,24 @@ export const MenuTabScreen: React.FC = () => {
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
-      })}>
+
+        headerShown: false,
+        tabBarStyle: {
+          height: 77,
+        },
+      })}
+    >
       <MenuTabScreenStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{title: 'Главная'}}
+        options={{
+          title: 'Главная',
+        }}
       />
       <MenuTabScreenStack.Screen
         name="Basket"
         component={Basket}
-        options={{title: 'Корзина'}}
+        options={{ title: 'Корзина' }}
       />
     </MenuTabScreenStack.Navigator>
   );
