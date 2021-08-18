@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid';
+import {nanoid} from 'nanoid';
 
 interface Card {
   id: string;
@@ -12,7 +12,7 @@ interface Card {
 
 export const mockCards: Card[] = [
   {
-    id: nanoid(),
+    id: '1',
     pathImage: require('../assets/images/prod-1.png'),
     price: 1990,
     discount: 990,
@@ -21,7 +21,7 @@ export const mockCards: Card[] = [
     isLike: true,
   },
   {
-    id: nanoid(),
+    id: '2',
     pathImage: require('../assets/images/prod-2.png'),
     price: 339,
     discount: 233,
@@ -30,7 +30,7 @@ export const mockCards: Card[] = [
     isLike: false,
   },
   {
-    id: nanoid(),
+    id: '3',
     pathImage: require('../assets/images/prod-3.png'),
     price: 7990,
     discount: 940,
@@ -39,7 +39,7 @@ export const mockCards: Card[] = [
     isLike: true,
   },
   {
-    id: nanoid(),
+    id: '4',
     pathImage: require('../assets/images/prod-4.png'),
     price: 6999,
     discount: 721,
@@ -48,7 +48,7 @@ export const mockCards: Card[] = [
     isLike: true,
   },
   {
-    id: nanoid(),
+    id: '5',
     pathImage: require('../assets/images/prod-5.png'),
     price: 21990,
     discount: 12799,

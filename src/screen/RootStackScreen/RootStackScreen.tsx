@@ -1,6 +1,6 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { MenuTabScreen } from './../MenuTabScreen/MenuTabScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import {MenuTabScreen} from './../MenuTabScreen/MenuTabScreen';
 
 const RootStack = createStackNavigator();
 

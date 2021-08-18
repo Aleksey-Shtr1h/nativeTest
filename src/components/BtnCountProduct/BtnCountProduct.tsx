@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
 import {
   IconComponentMinus,
@@ -31,9 +31,8 @@ export const BtnCountProduct: React.FC<Props> = ({
         bdr="1px solid #E3E5E5"
         jc="center"
         ai="center"
-        onPress={onCountMinusPress}
-      >
-        <IconComponentMinus w={10} h={10} />
+        onPress={onCountMinusPress}>
+        <IconComponentMinus w={10} h={1} />
       </Ant_FlexColumnWrapPress>
 
       <Ant_FlexColumnWrap
@@ -41,8 +40,7 @@ export const BtnCountProduct: React.FC<Props> = ({
         h="32px"
         bdr="1px solid #E3E5E5"
         jc="center"
-        ai="center"
-      >
+        ai="center">
         <Text>{countProduct}</Text>
       </Ant_FlexColumnWrap>
 
@@ -52,8 +50,7 @@ export const BtnCountProduct: React.FC<Props> = ({
         bdr="1px solid #E3E5E5"
         jc="center"
         ai="center"
-        onPress={onCountPlusPress}
-      >
+        onPress={onCountPlusPress}>
         <IconComponentPlus w={10} h={10} />
       </Ant_FlexColumnWrapPress>
     </Ant_FlexRowWrap>
